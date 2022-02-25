@@ -96,6 +96,7 @@ header, .navbar{
 }
 .img-fluid{
     height: 100%;
+    width:100%;
 }
 
 #about-area{
@@ -202,4 +203,17 @@ header, .navbar{
 }
 .style-col-12{
     background-color: white;
+}
+.style_logout {
+    text-align: center;
+    border: solid 2px red;
+    border-radius: 20px;
+    margin-top: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.texto_logout {
+    font-size: 22px;
+    color: red;
+    padding: 20px;
 }
