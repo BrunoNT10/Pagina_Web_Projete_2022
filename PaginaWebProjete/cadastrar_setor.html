@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relatórios - CEPEG</title>
+    <title>Downloads - CEPEG</title>
     <link rel="icon" type="image/png" href="img/logo_CEPEG_teste.png">
     <!-- Fonte -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,7 +32,6 @@
 </head>
 <body>
     <script src="js/script.js"></script>
-
     <header>
         <div class="container" id="nav-container">
             <nav class="navbar navbar-expand-lg fixed-top">
@@ -47,57 +46,50 @@
                     <div class="navbar-nav">
                         <a href="#nav-container" class="nav-item nav-link" id="nome-menu">Home</a>
                         <a href="downloads.html" class="nav-item nav-link" id="downloads-menu">Downloads</a>
-                        <!-- <a href="#texto_about" class="nav-item nav-link" id="about-menu">Sobre o CEPEG</a> -->
-                        <!-- <a href="pagina_contato.html" class="nav-item nav-link" id="contato-menu">Contato</a> -->
                         <a href="visualizar_dados.html" class="nav-item nav-link" id="nome-menu"> Relatórios </a> 
                         <a href="cadastrar_setor.html" class="nav-item nav-link cadastro" id="logout-menu" onclick="abrir_menu()">Cadastrar Setor</a>
                         <a href="cadastrar_funcionario.html" class="nav-item nav-link cadastro" id="logout-menu" onclick="abrir_menu()">Cadastrar Funcionário</a>
-                        <a href="tela_logout.html" class="nav-item nav-link" id="logout-menu"><img id="logout" src="img/imagem_logout.png" alt="Logout"> <label>Logout</label> </a>
+                        <a href="tela_logout.html" class="nav-item nav-link" id="logout-menu"><img id="logout" src="img/imagem_logout.png" alt="Logout"> Logout </a>
                     </div>
                 </div>
             </nav>
         </div>
     </header>
+    <main>
     <div class="container-fluid">
         <div id="about-area">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12" style="margin-top: -10px;">
-                        <p class="text-download">Bem vindo a visualização de dados!</p>
-                        <p class="text-download"> Aqui você consegue visualizar dados dos funcionários da sua empresa. </p>
-                        <p class="text-download"> Digite o nome do funcionário e em seguida selecione o tipo de relatório que você deseja visualizar: </p>
-                        <div><p class="text-download">Nome do funcionário:
-                            <input type="text" placeholder="Digite o nome do funcionário"></p>
-                        </div>
-                        <div><button class="main-btn3" onclick="relatorio_diario()"> Diário </button>
-                        <button class="main-btn3" onclick="relatorio_mensal()"> Mensal </button></div><br>
-                        <div><p class="text-download" id="texto_relatorio"></p>
-                            <input type="hidden" id="mes_relatorio">
-                            <input type="hidden" id="data_relatorio">
-                        </div><br><br><br><br><br>
-                        <div class="col-md-12" style="display:none" id="divisao_mes">
-                            <div>
-                                <button class="main-btn2" onclick="janeiro()"> Janeiro </button>
-                                <button class="main-btn2" onclick="fevereiro()"> Fevereiro </button>
-                                <button class="main-btn2" onclick="marco()"> Março </button>
-                                <button class="main-btn2" onclick="abril()"> Abril </button>
-                                <button class="main-btn2" onclick="maio()"> Maio </button>
-                                <button class="main-btn2" onclick="junho()"> Junho </button>
-                            </div><br>
-                            <div>
-                                <button class="main-btn2" onclick="julho()"> Julho </button>
-                                <button class="main-btn2" onclick="agosto()"> Agosto </button>
-                                <button class="main-btn2" onclick="setembro()"> Setembro </button>
-                                <button class="main-btn2" onclick="outubro()"> Outubro </button>
-                                <button class="main-btn2" onclick="novembro()"> Novembro </button>
-                                <button class="main-btn2" onclick="dezembro()"> Dezembro </button>
-                            </div>
-                        </div>
-                        <!-- </div> -->
-                    </div>
-                </div>
-            </div>
+        <div class="col-md-12" style="margin-top: -10px;">
+
+            <p class="pagina-download"> Bem vindo a área de cadastro!</p>
+            <p class="pagina-download"> Aqui você consegue cadastrar os setores de serviço da sua empresa que serão utilizados na verificação do CEPEG </p>
+        
+            <p style="font-size: 20px;">Setor da empresa: <input class="input_setor" type="text" placeholder="Digite aqui">
+            <button class="botao_cadastro" onclick="cadastrar_epis()" id="botao_cadastrar"> Concluido </button></p>
         </div>
-    </div>    
+        <div class="col-md-12" style="margin-top: 30px; display: none;" id="div_epi">
+            <div>
+            <button onclick="capacete()" id="botao_capacete" class="botao_cadastro_epis"><img src="img/imagem_capacete.png"> Capacete de proteção </button>
+            <button onclick="pa()" id="botao_pa" class="botao_cadastro_epis"><img src="img/Imagem_pa.png"> Protetor auricular </button>
+            <button onclick="luva()" id="botao_luvas" class="botao_cadastro_epis"><img src="img/Imagem_luvas.png"> Luvas de proteção </button>
+            </div>
+            <br>
+            <div>
+            <button onclick="colete()" id="botao_colete" class="botao_cadastro_epis"><img class="imagem_botao" src="img/Imagem_colete.png"> Colete de proteção </button>
+            <!-- <button onclick="calca()" class="botao_cadastro_epis"> Calça de proteção </button> -->
+            <button onclick="botas()" id="botao_botas" class="botao_cadastro_epis"><img src="img/Imagem_botas.png"> Botas de proteção </button>
+            <button onclick="oculos()" id="botao_oculos" class="botao_cadastro_epis"><img src="img/Imagem_oculos.png"> Óculos de proteção </button>
+            </div>
+            <br>
+            <button onclick="concluido()" id="botao_concluido" class="botao_concluido"> Concluído </button>
+        </div>
+        </div>
+         </div>
+        </div>
+     </div>
+    </div>
+    </main>
+
 </body>
 </html>

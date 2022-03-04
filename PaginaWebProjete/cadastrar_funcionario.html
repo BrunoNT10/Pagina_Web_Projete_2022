@@ -47,7 +47,8 @@
                         <a href="#nav-container" class="nav-item nav-link" id="nome-menu">Home</a>
                         <a href="downloads.html" class="nav-item nav-link" id="downloads-menu">Downloads</a>
                         <a href="visualizar_dados.html" class="nav-item nav-link" id="nome-menu"> Relatórios </a> 
-                        <a href="cadastrar_funcionario.html" class="nav-item nav-link" id="cadastra_funcionario">Cadastrar</a>
+                        <a href="cadastrar_setor.html" class="nav-item nav-link cadastro" id="logout-menu" onclick="abrir_menu()">Cadastrar Setor</a>
+                        <a href="cadastrar_funcionario.html" class="nav-item nav-link cadastro" id="logout-menu" onclick="abrir_menu()">Cadastrar Funcionário</a>
                         <a href="tela_logout.html" class="nav-item nav-link" id="logout-menu"><img id="logout" src="img/imagem_logout.png" alt="Logout"> Logout </a>
                     </div>
                 </div>
@@ -61,34 +62,14 @@
                 <div class="row">
         <div class="col-md-12" style="margin-top: -10px;">
 
-            <p class="pagina-download"> Bem vindo a área de cadastro!</p>
-            <p class="pagina-download"> Aqui você consegue cadastrar os setores de serviço da sua empresa que serão utilizados na verificação do CEPEG </p>
-        
-            <p style="font-size: 20px;">Setor da empresa: <input class="input_setor" type="text" placeholder="Digite aqui">
-            <button class="botao_cadastro" onclick="cadastrar_epis()" id="botao_cadastrar"> Concluido </button></p>
+            <p class="pagina-download"> Bem vindo a área de cadastro de funcionários!</p>
+            <p class="pagina-download"> Aqui você consegue cadastrar os funcionários da sua empresa que terão as EPI's verificadas </p>
+            <p class="pagina-download"> Nome do funcionário: <input type="text" placeholder="Digite aqui"> <button class="botao_cadastro">Concluído</button></p>
         </div>
-        <div class="col-md-12" style="margin-top: 30px; display: none;" id="div_epi">
-            <div>
-            <button onclick="capacete()" id="botao_capacete" class="botao_cadastro_epis"><img src="img/imagem_capacete.png"> Capacete de proteção </button>
-            <button onclick="pa()" id="botao_pa" class="botao_cadastro_epis"><img src="img/Imagem_pa.png"> Protetor auricular </button>
-            <button onclick="luva()" id="botao_luvas" class="botao_cadastro_epis"><img src="img/Imagem_luvas.png"> Luvas de proteção </button>
-            </div>
-            <br>
-            <div>
-            <button onclick="colete()" id="botao_colete" class="botao_cadastro_epis"><img class="imagem_botao" src="img/Imagem_colete.png"> Colete de proteção </button>
-            <!-- <button onclick="calca()" class="botao_cadastro_epis"> Calça de proteção </button> -->
-            <button onclick="botas()" id="botao_botas" class="botao_cadastro_epis"><img src="img/Imagem_botas.png"> Botas de proteção </button>
-            <button onclick="oculos()" id="botao_oculos" class="botao_cadastro_epis"><img src="img/Imagem_oculos.png"> Óculos de proteção </button>
-            </div>
-            <br>
-            <button onclick="concluido()" id="botao_concluido" class="botao_concluido"> Concluído </button>
-        </div>
-        </div>
-         </div>
-        </div>
-     </div>
+    </div>
+    </div>
+    </div>
     </div>
     </main>
-
 </body>
 </html>
