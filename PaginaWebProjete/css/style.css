@@ -220,17 +220,3 @@ header, .navbar{
 .link-pag-explicacao {
     cursor: pointer;
 }
-ul{
-    background-color: orange;
-    color: white;
-    text-align:center;
-    position: left;
-    
-    /* border: 2px solid; */
-
-}
-li{
-    list-style: none;
-    height: 30px;
-    /* width:50px; */
-}
