@@ -1,57 +1,5 @@
-function cadastrar_empresa(){
-    console.log("Cadastrar empresa")
-}
-var firebaseConfig = {
-    apiKey: "AIzaSyDVyPsRvmfFwH3hASMeqLrpMElyeP48RRw",
-    authDomain: "projete-2022.firebaseapp.com",
-    databaseURL: "https://projete-2022-default-rtdb.firebaseio.com",
-    projectId: "projete-2022",
-    storageBucket: "projete-2022.appspot.com",
-    messagingSenderId: "392429305078",
-    appId: "1:392429305078:web:31e7a9605638bbc20380d7",
-    measurementId: "G-31C7LKYKWP"
-};
-firebase.initializeApp(firebaseConfig);
-const db = firebase.database();
-function teste(){
-    try{
-        db
-         .ref('users')
-         .once('value')
-         .then(function(snapshot){
-               console.log(snapshot.val());
-            //    console.log(JSON.stringify(snapshot.val()))
-               resElement = JSON.stringify(snapshot.val());
-               console.log(resElement);
-            
-  })
-}catch(err){
-     alert("Houve algum erro!");
-}
-  
-}
-function baixar_imagens(){
-    var data = document.getElementById("data").value;
-    var nome = document.getElementById("nome").value;
-    console.log(data)
-    console.log(nome)
+// ----------- RELATÓRIOS -----------
 
-    if (data != "" && nome != ""){
-        console.log("funcionou");
-    }
-    else{
-        console.log("erro");
-        document.getElementById("texto_erro").innerHTML = "Data e/ou nome inválidos"
-
-        setTimeout(function tempo_espera(){
-            console.log("timeout acessado ");
-            document.getElementById("texto_erro").innerHTML = "";
-        
-        }, 8000);
-    }
-
-    
-}
 function relatorio_diario(){
     document.getElementById("texto_relatorio").innerHTML = "Digite ou selecione a data que deseja ver o relatório: "
     document.getElementById("data_relatorio").type = "date"
@@ -136,5 +84,78 @@ function novembro(){
 
 function dezembro(){
     console.log("dezembro");
+}
 
+// ----------- CADASTRO DAS EPI'S -----------
+var var_capacete = 0;
+var var_luva = 0;
+var var_botas = 0;
+var var_pa = 0;
+var var_colete = 0;
+var var_oculos = 0;
+
+function capacete(){
+    cor_botao = document.getElementById("botao_capacete");
+    cor_botao.style.backgroundColor = "green";
+    var_capacete = 1;
+
+}
+function luva(){
+    cor_botao = document.getElementById("botao_luvas");
+    cor_botao.style.backgroundColor = "green";
+    var_luva = 1;
+
+}
+function botas(){
+    cor_botao = document.getElementById("botao_botas");
+    cor_botao.style.backgroundColor = "green";
+    var_botas = 1;
+
+}function pa(){
+    cor_botao = document.getElementById("botao_pa");
+    cor_botao.style.backgroundColor = "green";
+    var_pa = 1;
+
+}function oculos(){
+    cor_botao = document.getElementById("botao_oculos");
+    cor_botao.style.backgroundColor = "green";
+    var_oculos = 1;
+
+}
+function colete(){
+    cor_botao = document.getElementById("botao_colete");
+    cor_botao.style.backgroundColor = "green";
+    var_colete = 1;
+
+}
+function concluido(){
+    if (var_capacete != 1){
+        cor_botao = document.getElementById("botao_capacete");
+        cor_botao.style.backgroundColor = "red";
+    }
+    if (var_luva != 1){
+        cor_botao = document.getElementById("botao_luvas");
+        cor_botao.style.backgroundColor = "red";
+
+    }
+    if (var_pa != 1){
+        cor_botao = document.getElementById("botao_pa");
+        cor_botao.style.backgroundColor = "red";
+
+    }
+    if (var_oculos != 1){
+        cor_botao = document.getElementById("botao_oculos");
+        cor_botao.style.backgroundColor = "red";
+
+    }
+    if (var_colete != 1){
+        cor_botao = document.getElementById("botao_colete");
+        cor_botao.style.backgroundColor = "red";
+
+    }
+    if (var_botas != 1){
+        cor_botao = document.getElementById("botao_botas");
+        cor_botao.style.backgroundColor = "red";
+
+    }
 }
