@@ -159,3 +159,14 @@ function concluido(){
 
     }
 }
+
+function cadastrar_epis(){
+    console.log("função acessada");
+    var cadastrar = document.getElementById("div_epi");
+
+    if (cadastrar.style.display == "none") {
+        console.log("botoes visiveis");
+        cadastrar.style.display = "block";
+    }
+
+}

@@ -33,31 +33,41 @@
 <body>
     <script src="js/script.js"></script>
     <header>
-    <div class="container" id="nav-container">
-
-    <div id="about-area">
-            <div class="row">
-                <div class="col-12">
-                    <h3 class="main-title1"> Cadastro </h3>
+        <div class="container" id="nav-container">
+            <nav class="navbar navbar-expand-lg fixed-top">
+                <a href="#" class="navbar-brand">
+                    <img id="logo" src="img/logo_CEPEG_teste.png" alt="CEPEG"> CEPEG
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links"
+                aria-controls="navbar-links" aria-expanded="false" area-label="Toggle navigation">
+                    <span clas="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
+                    <div class="navbar-nav">
+                        <a href="#nav-container" class="nav-item nav-link" id="nome-menu">Home</a>
+                        <a href="downloads.html" class="nav-item nav-link" id="downloads-menu">Downloads</a>
+                        <a href="visualizar_dados.html" class="nav-item nav-link" id="nome-menu"> Relatórios </a> 
+                        <a href="cadastrar_funcionario.html" class="nav-item nav-link" id="cadastra_funcionario">Cadastrar</a>
+                        <a href="tela_logout.html" class="nav-item nav-link" id="logout-menu"><img id="logout" src="img/imagem_logout.png" alt="Logout"> Logout </a>
+                    </div>
                 </div>
-                </div>
+            </nav>
         </div>
-    </div>
-    </div>
     </header>
+    <main>
     <div class="container-fluid">
         <div id="about-area">
             <div class="container">
                 <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12" style="margin-top: -10px;">
 
             <p class="pagina-download"> Bem vindo a área de cadastro!</p>
             <p class="pagina-download"> Aqui você consegue cadastrar os setores de serviço da sua empresa que serão utilizados na verificação do CEPEG </p>
         
-            <p style="font-size: 20px;">Setor da empresa: <input class="input_setor" type="text" placeholder="Digite aqui"></p>
-            
+            <p style="font-size: 20px;">Setor da empresa: <input class="input_setor" type="text" placeholder="Digite aqui">
+            <button class="botao_cadastro" onclick="cadastrar_epis()" id="botao_cadastrar"> Concluido </button></p>
         </div>
-        <div class="col-md-12" style="margin-top: 30px;">
+        <div class="col-md-12" style="margin-top: 30px; display: none;" id="div_epi">
             <div>
             <button onclick="capacete()" id="botao_capacete" class="botao_cadastro_epis"><img src="img/imagem_capacete.png"> Capacete de proteção </button>
             <button onclick="pa()" id="botao_pa" class="botao_cadastro_epis"><img src="img/Imagem_pa.png"> Protetor auricular </button>
@@ -78,6 +88,7 @@
         </div>
      </div>
     </div>
+    </main>
 
 </body>
 </html>

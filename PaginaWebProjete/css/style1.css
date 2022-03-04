@@ -188,6 +188,19 @@
     border-color: green;
 }
 
-/* .imagem_botao {
-    width: 30%;
-    height: 30%; */
+.botao_cadastro {
+    color: white;
+    background-color: #34df25;
+    border-radius: 30px;
+    text-transform: uppercase;
+    border: 3px solid transparent;
+    width: 170px;
+    height: 40px;
+    transition: .5s;
+}
+.botao_cadastro:hover {
+    text-decoration:none;
+    color: white;
+    background-color: green;
+    border-color: green;
+}
