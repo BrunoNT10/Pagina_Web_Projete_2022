@@ -1,3 +1,18 @@
+var firebaseConfig = {
+    apiKey: "AIzaSyDVyPsRvmfFwH3hASMeqLrpMElyeP48RRw",
+    authDomain: "projete-2022.firebaseapp.com",
+    databaseURL: "https://projete-2022-default-rtdb.firebaseio.com",
+    projectId: "projete-2022",
+    storageBucket: "projete-2022.appspot.com",
+    messagingSenderId: "392429305078",
+    appId: "1:392429305078:web:31e7a9605638bbc20380d7",
+    measurementId: "G-31C7LKYKWP"
+  };
+
+firebase.initializeApp(firebaseConfig)
+
+db = firebase.database()
+
 // ----------- RELATÓRIOS -----------
 
 function relatorio_diario(){
@@ -94,35 +109,100 @@ var var_pa = 0;
 var var_colete = 0;
 var var_oculos = 0;
 
+function ReceberNomeSetor(){
+    NomeSetor = document.getElementById('input_nome_setor').value;
+    return NomeSetor;
+}
+
 function capacete(){
+    var nome_do_setor = ReceberNomeSetor()
+    try{
+        db.ref(nome_do_setor).set({
+            capacete: true
+        });
+        
+    }
+    catch(err){
+        alert('Problema')
+    }
     cor_botao = document.getElementById("botao_capacete");
     cor_botao.style.backgroundColor = "green";
     var_capacete = 1;
 
 }
 function luva(){
+    var nome_do_setor = ReceberNomeSetor()
+    try{
+        db.ref(nome_do_setor).set({
+            luva: true
+        });
+        
+    }
+    catch(err){
+        alert('Problema')
+    }
     cor_botao = document.getElementById("botao_luvas");
     cor_botao.style.backgroundColor = "green";
     var_luva = 1;
 
 }
 function botas(){
+    var nome_do_setor = ReceberNomeSetor()
+    try{
+        db.ref(nome_do_setor).set({
+            botas: true
+        });
+        
+    }
+    catch(err){
+        alert('Problema')
+    }
     cor_botao = document.getElementById("botao_botas");
     cor_botao.style.backgroundColor = "green";
     var_botas = 1;
 
 }function pa(){
+    var nome_do_setor = ReceberNomeSetor()
+    try{
+        db.ref(nome_do_setor).set({
+            pa: true
+        });
+        
+    }
+    catch(err){
+        alert('Problema')
+    }
     cor_botao = document.getElementById("botao_pa");
     cor_botao.style.backgroundColor = "green";
     var_pa = 1;
 
 }function oculos(){
+    var nome_do_setor = ReceberNomeSetor()
+    try{
+        db.ref(nome_do_setor).set({
+            oculos: true
+        });
+        
+    }
+    catch(err){
+        alert('Problema')
+    }
     cor_botao = document.getElementById("botao_oculos");
     cor_botao.style.backgroundColor = "green";
     var_oculos = 1;
 
 }
 function colete(){
+    var nome_do_setor = ReceberNomeSetor()
+    try{
+        db.ref(nome_do_setor).set({
+            colete: true
+        });
+        
+    }
+    catch(err){
+        alert('Problema')
+    }
     cor_botao = document.getElementById("botao_colete");
     cor_botao.style.backgroundColor = "green";
     var_colete = 1;

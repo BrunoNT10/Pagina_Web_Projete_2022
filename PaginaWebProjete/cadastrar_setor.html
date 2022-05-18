@@ -29,6 +29,11 @@
     <!-- Script firebase -->
     <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-database.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-database.js"></script>
+
+
 </head>
 <body>
     <script src="js/script.js"></script>
@@ -65,7 +70,7 @@
             <p class="pagina-download"> Bem vindo a área de cadastro!</p>
             <p class="pagina-download"> Aqui você consegue cadastrar os setores de serviço da sua empresa que serão utilizados na verificação do CEPEG </p>
         
-            <p style="font-size: 20px;">Setor da empresa: <input class="input_setor" type="text" placeholder="Digite aqui">
+            <p style="font-size: 20px;">Setor da empresa: <input class="input_setor" id="input_nome_setor" type="text" placeholder="Digite aqui">
             <button class="botao_cadastro" onclick="cadastrar_epis()" id="botao_cadastrar"> Concluido </button></p>
         </div>
         <div class="col-md-12" style="margin-top: 30px; display: none;" id="div_epi">
