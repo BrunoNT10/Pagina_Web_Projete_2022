@@ -1,3 +1,5 @@
+// ---------- INICIALIZAÇÃO DO FIREBASE ----------
+
 var firebaseConfig = {
     apiKey: "AIzaSyDVyPsRvmfFwH3hASMeqLrpMElyeP48RRw",
     authDomain: "projete-2022.firebaseapp.com",
@@ -102,151 +104,208 @@ function dezembro(){
 }
 
 // ----------- CADASTRO DAS EPI'S -----------
-var var_capacete = 0;
-var var_luva = 0;
-var var_botas = 0;
-var var_pa = 0;
-var var_colete = 0;
-var var_oculos = 0;
+var usar_capacete = false, usar_luvas = false, usar_botas = false, usar_colete = false, usar_PA = false, usar_oculos = false;
+var cadastro_concluido = false, resElement, i;
 
 function ReceberNomeSetor(){
     NomeSetor = document.getElementById('input_nome_setor').value;
     return NomeSetor;
 }
 
-function capacete(){
-    var nome_do_setor = ReceberNomeSetor()
-    try{
-        db.ref(nome_do_setor).set({
-            capacete: true
-        });
-        
-    }
-    catch(err){
-        alert('Problema')
-    }
+function CadastrarCapacete(){
     cor_botao = document.getElementById("botao_capacete");
     cor_botao.style.backgroundColor = "green";
-    var_capacete = 1;
+    usar_capacete = true;
 
 }
-function luva(){
-    var nome_do_setor = ReceberNomeSetor()
-    try{
-        db.ref(nome_do_setor).set({
-            luva: true
-        });
-        
-    }
-    catch(err){
-        alert('Problema')
-    }
+function CadastrarLuva(){
+    
     cor_botao = document.getElementById("botao_luvas");
     cor_botao.style.backgroundColor = "green";
-    var_luva = 1;
+    usar_luvas = true;
 
 }
-function botas(){
-    var nome_do_setor = ReceberNomeSetor()
-    try{
-        db.ref(nome_do_setor).set({
-            botas: true
-        });
-        
-    }
-    catch(err){
-        alert('Problema')
-    }
+function CadastrarBotas(){
+   
     cor_botao = document.getElementById("botao_botas");
     cor_botao.style.backgroundColor = "green";
-    var_botas = 1;
+    usar_botas = true;
 
-}function pa(){
-    var nome_do_setor = ReceberNomeSetor()
-    try{
-        db.ref(nome_do_setor).set({
-            pa: true
-        });
-        
-    }
-    catch(err){
-        alert('Problema')
-    }
+}
+function CadastrarPA(){
+   
     cor_botao = document.getElementById("botao_pa");
     cor_botao.style.backgroundColor = "green";
-    var_pa = 1;
+    usar_PA = true;
 
-}function oculos(){
-    var nome_do_setor = ReceberNomeSetor()
-    try{
-        db.ref(nome_do_setor).set({
-            oculos: true
-        });
-        
-    }
-    catch(err){
-        alert('Problema')
-    }
+}
+function CadastrarOculos(){
+    
     cor_botao = document.getElementById("botao_oculos");
     cor_botao.style.backgroundColor = "green";
-    var_oculos = 1;
+    usar_oculos = true;
 
 }
-function colete(){
-    var nome_do_setor = ReceberNomeSetor()
-    try{
-        db.ref(nome_do_setor).set({
-            colete: true
-        });
-        
-    }
-    catch(err){
-        alert('Problema')
-    }
+function CadastrarColete(){
+    
     cor_botao = document.getElementById("botao_colete");
     cor_botao.style.backgroundColor = "green";
-    var_colete = 1;
+    usar_colete = true;
 
 }
-function concluido(){
-    if (var_capacete != 1){
+
+function Concluir(){
+    nome_setor = ReceberNomeSetor()
+
+    try{
+        db.ref('Setores').push({
+            Setor: nome_setor
+        })
+    }
+    catch(error){
+        alert('Problema')
+    }
+    if (usar_capacete != true){
         cor_botao = document.getElementById("botao_capacete");
         cor_botao.style.backgroundColor = "red";
     }
-    if (var_luva != 1){
+    if (usar_luvas != true){
         cor_botao = document.getElementById("botao_luvas");
         cor_botao.style.backgroundColor = "red";
 
     }
-    if (var_pa != 1){
+    if (usar_PA != true){
         cor_botao = document.getElementById("botao_pa");
         cor_botao.style.backgroundColor = "red";
 
     }
-    if (var_oculos != 1){
+    if (usar_oculos != true){
         cor_botao = document.getElementById("botao_oculos");
         cor_botao.style.backgroundColor = "red";
 
     }
-    if (var_colete != 1){
+    if (usar_colete != true){
         cor_botao = document.getElementById("botao_colete");
         cor_botao.style.backgroundColor = "red";
 
     }
-    if (var_botas != 1){
+    if (usar_botas != true){
         cor_botao = document.getElementById("botao_botas");
         cor_botao.style.backgroundColor = "red";
 
     }
+    nome_setor = 'setores/'+nome_setor
+    try{
+        db.ref(nome_setor).set({
+            epis: {capacete: usar_capacete, 
+                   luvas: usar_luvas, 
+                   botas: usar_botas, 
+                   colete: usar_colete, 
+                   oculos: usar_oculos, 
+                   pa: usar_PA}
+        })
+    }
+    catch(error){
+        alert('Problema ao salvar as variáveis, recarregue a página e tente novamente!')
+    }
+    cadastro_concluido = true;
+    
 }
 
-function cadastrar_epis(){
+function CadastrarOutroSetor(){
+    if(cadastro_concluido == true){
+        location.reload()
+    }
+    else{
+        alert('Conclua o cadastro desse setor primeiro clicando no botão concluido!')
+    }
+}
+
+function CadastrarEpis(){
     console.log("função acessada");
     var cadastrar = document.getElementById("div_epi");
 
     if (cadastrar.style.display == "none") {
-        console.log("botoes visiveis");
         cadastrar.style.display = "block";
     }
 
 }
+// ----------- CADASTRO DOS FUNCIONARIOS -----------
+var json_setores;
+
+function RecarregarPagina(){
+    location.reload()
+}
+
+function DefinirSetor(){
+    setor_funcionario = this.innerHTML
+    nome_funcionario = document.getElementById('nome-funcionario').value
+    
+    console.log('Nome do funcionário: ', nome_funcionario, ', ', 'Setor: ', setor_funcionario)
+    nome_funcionario = 'funcionarios/'+nome_funcionario
+    try{
+        db.ref(nome_funcionario).set({
+            setor: setor_funcionario
+        })
+    }
+    catch(error){
+        alert('Problema ao cadastrar funcionário, recarregue a página e tente novamente')
+    }
+
+    quebra_de_linha = document.createElement('br')
+    novo_botao_concluido = document.createElement('button')
+    novo_botao_concluido.innerHTML = 'CONCLUÍDO'
+    novo_botao_concluido.classList.add('botao_concluido', 'distancia_botao_concluido')
+    novo_botao_concluido.addEventListener('click', RecarregarPagina)
+
+    div_criar_botoes.appendChild(quebra_de_linha)
+    div_criar_botoes.appendChild(novo_botao_concluido)
+
+}
+
+function BuscarDados(x){
+    json_setores = x
+    console.log(json_setores)
+
+    div_criar_botoes = document.getElementById('div_botoes_setores')
+
+    if (div_criar_botoes.style.display === "none") {
+        div_criar_botoes.style.display = "block";
+    }
+
+
+    for(key in resElement){
+        console.log(resElement[key].Setor)
+        local = document.getElementById('div_botoes_setores');
+        novo_item_local = document.createElement('button')
+
+        novo_item_local.innerHTML = resElement[key].Setor
+
+        novo_item_local.classList.add('botao_cadastro_epis')
+
+        novo_item_local.addEventListener('click', DefinirSetor)
+
+        local.appendChild(novo_item_local)
+    }
+
+
+    return
+    
+}
+function CadastrarFuncionarios(){
+    try{
+        db
+         .ref('Setores')
+           .once('value')
+           .then(function(snapshot){
+               resElement = snapshot.val();
+               
+               BuscarDados(resElement)
+        })
+    }
+    catch(error){
+        alert('Problema!')
+    }
+    
+}
+

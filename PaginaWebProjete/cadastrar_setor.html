@@ -71,23 +71,26 @@
             <p class="pagina-download"> Aqui você consegue cadastrar os setores de serviço da sua empresa que serão utilizados na verificação do CEPEG </p>
         
             <p style="font-size: 20px;">Setor da empresa: <input class="input_setor" id="input_nome_setor" type="text" placeholder="Digite aqui">
-            <button class="botao_cadastro" onclick="cadastrar_epis()" id="botao_cadastrar"> Concluido </button></p>
+            <button class="botao_cadastro" onclick="CadastrarEpis()" id="botao_cadastrar"> Concluido </button></p>
         </div>
         <div class="col-md-12" style="margin-top: 30px; display: none;" id="div_epi">
             <div>
-            <button onclick="capacete()" id="botao_capacete" class="botao_cadastro_epis"><img src="img/imagem_capacete.png"> Capacete de proteção </button>
-            <button onclick="pa()" id="botao_pa" class="botao_cadastro_epis"><img src="img/Imagem_pa.png"> Protetor auricular </button>
-            <button onclick="luva()" id="botao_luvas" class="botao_cadastro_epis"><img src="img/Imagem_luvas.png"> Luvas de proteção </button>
+            <button onclick="CadastrarCapacete()" id="botao_capacete" class="botao_cadastro_epis"><img src="img/imagem_capacete.png"> Capacete de proteção </button>
+            <button onclick="CadastrarPA()" id="botao_pa" class="botao_cadastro_epis"><img src="img/Imagem_pa.png"> Protetor auricular </button>
+            <button onclick="CadastrarLuva()" id="botao_luvas" class="botao_cadastro_epis"><img src="img/Imagem_luvas.png"> Luvas de proteção </button>
             </div>
             <br>
             <div>
-            <button onclick="colete()" id="botao_colete" class="botao_cadastro_epis"><img class="imagem_botao" src="img/Imagem_colete.png"> Colete de proteção </button>
+            <button onclick="CadastrarColete()" id="botao_colete" class="botao_cadastro_epis"><img class="imagem_botao" src="img/Imagem_colete.png"> Colete de proteção </button>
             <!-- <button onclick="calca()" class="botao_cadastro_epis"> Calça de proteção </button> -->
-            <button onclick="botas()" id="botao_botas" class="botao_cadastro_epis"><img src="img/Imagem_botas.png"> Botas de proteção </button>
-            <button onclick="oculos()" id="botao_oculos" class="botao_cadastro_epis"><img src="img/Imagem_oculos.png"> Óculos de proteção </button>
+            <button onclick="CadastrarBotas()" id="botao_botas" class="botao_cadastro_epis"><img src="img/Imagem_botas.png"> Botas de proteção </button>
+            <button onclick="CadastrarOculos()" id="botao_oculos" class="botao_cadastro_epis"><img src="img/Imagem_oculos.png"> Óculos de proteção </button>
             </div>
             <br>
-            <button onclick="concluido()" id="botao_concluido" class="botao_concluido"> Concluído </button>
+            <div style="text-align:center">
+            <button onclick="Concluir()" id="botao_concluido" class="botao_concluido"> Concluído </button><br>
+            <button onclick="CadastrarOutroSetor()"" id="botao_cadastrar_setor" class="botao_cadastrar_setor"> Cadastrar outro setor </button>
+            </div>
         </div>
         </div>
          </div>
