@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contatos - CEPEG</title>
+    <title>Login - CEPEG</title>
     <link rel="icon" type="image/png" href="img/logo_CEPEG_teste.png">
     <!-- Fonte -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="css/style2.css">
     <!-- Scripts -->
     <script
         src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -32,44 +32,24 @@
 
     <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-database.js"></script>
-
 </head>
-<body>
-    <!-- <button onclick="download()">Teste</button> -->
-    <script src="js/script.js"></script>
-    <header>
-        <div class="container" id="nav-container">
-            <nav class="navbar navbar-expand-lg fixed-top">
-                <a href="#" class="navbar-brand">
-                    <img id="logo" src="img/logo_CEPEG_teste.png" alt="CEPEG"> CEPEG
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links"
-                aria-controls="navbar-links" aria-expanded="false" area-label="Toggle navigation">
-                    <span clas="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
-                    <div class="navbar-nav">
-                        <a href="index.html" class="nav-item nav-link" id="nome-menu">Home</a>
-                        <a href="index.html" class="nav-item nav-link" id="about-menu">Sobre o CEPEG</a>
-                        <a href="index.html" class="nav-item nav-link" id="nome-menu"> Áreas de atuação </a>
-                        <a href="pagina_contato.html" class="nav-item nav-link" id="contato-menu">Contato</a>
-                        <a class="nav-item nav-link" id="logout-menu"><img id="logout" src="img/imagem_logout.png" alt="Login"> Login </a>
-                    </div>
-                </div>
-            </nav>
+<body style="background-image: url('img/img_epi_tela_login.jfif')">
+    
+    <div class="box-login">
+        <div class="logo">
+            <img src="img/Imagem_logo.png">
         </div>
-    </header>
-    <div class="container-fluid">
-        <div id="about-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12" style="margin-top: -10px;">
-                        <p class="texto_email"><img src="img/logo_email.png" style="width:50px; height:50px;"> cepegoficial@gmail.com</p>
-                        <p class="texto_email"><img src="img/logo_whatsapp.png" style="width: 50px; height: 50px;"> Número </p>
-                    </div>
-                </div>
-            </div>
+        <div class="entradas-dados">
+            Usuário: <input class="input_dados" type="text" id="usuario" placeholder="Digite seu usuário"><br><br>
+            Senha: <input class="input_dados" type="password" id="senha" placeholder="Digite sua senha"><br><br>
+            E-mail: <input class="input_dados" type="mail" id="email" placeholder="Digite seu email">
+        </div>
+        <br>
+        <div class="botoes">
+            <button class="botao_login" onclick="CadastrarConta()"> CADASTRAR </button>
+            <label id="retorno_cadastro" style='color: green'></label>
         </div>
     </div>
-
+    <script src="js/script.js"></script>    
 </body>
+</html>

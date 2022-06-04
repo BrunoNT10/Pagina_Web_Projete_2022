@@ -17,6 +17,14 @@ db = firebase.database()
 
 // ----------- RELATÓRIOS -----------
 
+function BaixarImagensFunc(){
+    nome_func = document.getElementById('nome').value
+    data = document.getElementById('data').value
+
+    img_file_name = nome_func+data
+    console.log(img_file_name)
+}
+
 function relatorio_diario(){
     document.getElementById("texto_relatorio").innerHTML = "Digite ou selecione a data que deseja ver o relatório: "
     document.getElementById("data_relatorio").type = "date"
@@ -105,9 +113,10 @@ function dezembro(){
 
 // ----------- CADASTRO DAS EPI'S -----------
 var usar_capacete = false, usar_luvas = false, usar_botas = false, usar_colete = false, usar_PA = false, usar_oculos = false;
-var cadastro_concluido = false, resElement, i;
+var cadastro_concluido = false, resElement, i, empresa;
 
 function ReceberNomeSetor(){
+    empresa = localStorage.getItem('nome')
     NomeSetor = document.getElementById('input_nome_setor').value;
     return NomeSetor;
 }
@@ -156,9 +165,10 @@ function CadastrarColete(){
 
 function Concluir(){
     nome_setor = ReceberNomeSetor()
+    local_cadastro_setor = empresa + '/Setores'
 
     try{
-        db.ref('Setores').push({
+        db.ref(local_cadastro_setor).push({
             Setor: nome_setor
         })
     }
@@ -194,7 +204,7 @@ function Concluir(){
         cor_botao.style.backgroundColor = "red";
 
     }
-    nome_setor = 'setores/'+nome_setor
+    nome_setor = empresa+'/setores/'+nome_setor
     try{
         db.ref(nome_setor).set({
             epis: {capacete: usar_capacete, 
@@ -242,7 +252,7 @@ function DefinirSetor(){
     nome_funcionario = document.getElementById('nome-funcionario').value
     
     console.log('Nome do funcionário: ', nome_funcionario, ', ', 'Setor: ', setor_funcionario)
-    nome_funcionario = 'funcionarios/'+nome_funcionario
+    nome_funcionario = empresa+'/funcionarios/'+nome_funcionario
     try{
         db.ref(nome_funcionario).set({
             setor: setor_funcionario
@@ -293,13 +303,16 @@ function BuscarDados(x){
     
 }
 function CadastrarFuncionarios(){
+    empresa = localStorage.getItem('nome')
+
+    console.log(empresa)
+    referencia_setores = empresa+'/Setores'
     try{
         db
-         .ref('Setores')
+         .ref(referencia_setores)
            .once('value')
            .then(function(snapshot){
                resElement = snapshot.val();
-               
                BuscarDados(resElement)
         })
     }
@@ -307,5 +320,66 @@ function CadastrarFuncionarios(){
         alert('Problema!')
     }
     
+}
+
+// ----------- LOGIN -----------
+var username, password;
+var empresa;
+
+function DadosEmpresa(resElement, senha_conta, nome_empresa){
+    label_retorno_login = document.getElementById('retorno_login')
+    if(resElement == null){
+        label_retorno_login.innerHTML = 'Empresa não cadastrada, verifique seu usuário'
+    }
+    else if(resElement.Senha == senha_conta){
+        empresa=nome_empresa
+        window.location.href = "index_logado.html"
+    }
+    else{
+        label_retorno_login.innerHTML = 'Senha incorreta'
+    }
+    
+}
+
+function LogarConta(){
+    username = document.getElementById('username').value;
+    password = document.getElementById('password').value;
+
+    localStorage.setItem('nome', username)
+
+    try{
+        db
+         .ref(username)
+           .once('value')
+           .then(function(snapshot){
+               resElement = snapshot.val();
+               
+               DadosEmpresa(resElement, password, username)
+        })
+    }
+    catch(error){
+        console.log(error)
+        alert('Problema!')
+    }
+    
+}
+
+function CadastrarConta(){
+    usuario = document.getElementById('usuario').value
+    senha = document.getElementById('senha').value
+    email = document.getElementById('email').value
+    label_retorno_cadastro = document.getElementById('retorno_cadastro')
+    try{
+        db.ref(usuario).set({
+            Senha: senha,
+            Email: email
+        })
+        label_retorno_cadastro.innerHTML = 'Empresa cadastrada com sucesso'
+
+    }
+    catch(error){
+        console.log(error)
+        alert('Problema ao cadastrar')
+    }
 }
 
